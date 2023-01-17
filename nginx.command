@@ -114,13 +114,13 @@ to your http server block
 # ================================================== set download location in your site =======================
 add the following commands to the http and https block in yoursitenmae.com.conf file:
 location /downloads {
-  alias /var/www/storages/photos;
+  alias /var/www/storages;
 }
 # ================================================== allow access control allow origin ========================
 if you whant allow access control allow origin in same block add following commands in yoursitenmae.com.conf file for root,main domain,subdomain and subdirectory :
 
 location /fonts {
-  alias /root/apps/storages/fonts/;
+  alias /root/apps/storages/fonts;
   if ($request_method = 'OPTIONS') {
     add_header 'Access-Control-Allow-Origin' '*' always;
   }
