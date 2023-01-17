@@ -67,7 +67,7 @@ server {
     
     location / {
       proxy_pass http://localhost:3000;
-	    proxy_http_version 1.1;
+      proxy_http_version 1.1;
       proxy_redirect off;
       proxy_set_header Upgrade $http_upgrade;
       proxy_cache_bypass $http_upgrade;
@@ -83,19 +83,19 @@ server {
       proxy_set_header Authorization $http_authorization;
       proxy_pass_header Authorization;
       add_header 'Access-Control-Allow-Credentials' 'true';
-	    proxy_connect_timeout 2000s;
-	    proxy_send_timeout 2000s;
-	    proxy_read_timeout 2000s;
-	    fastcgi_send_timeout 2000s;
-	    fastcgi_read_timeout 2000s;
+      proxy_connect_timeout 2000s;
+      proxy_send_timeout 2000s;
+      proxy_read_timeout 2000s;
+      fastcgi_send_timeout 2000s;
+      fastcgi_read_timeout 2000s;
       add_header Last-Modified $date_gmt;
       add_header Cache-Control 'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0';
       if_modified_since off;
       expires off;
       etag off;
-
-    	access_log /var/log/nginx/api.access.log;
-    	error_log /var/log/nginx/api.error.log;
+      
+      access_log /var/log/nginx/api.access.log;
+      error_log /var/log/nginx/api.error.log;
     }
     
     error_page 404 /404.html;
