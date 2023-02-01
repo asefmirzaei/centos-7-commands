@@ -21,7 +21,16 @@ sudo systemctl reload nginx
 sudo systemctl disable nginx
 sudo systemctl enable nginx
 sudo systemctl status nginx
-
+# ================================================== uninstall ================================================
+sudo systemctl stop nginx.service
+sudo systemctl disable nginx.service
+sudo userdel -r nginx
+sudo rm -rf /etc/nginx
+sudo rm -rf /etc/init.d/nginx
+sudo rm -rf /var/log/nginx
+sudo rm -rf /var/cache/nginx
+sudo rm -rf /usr/sbin/nginx
+sudo rm -rf /usr/lib/systemd/system/nginx.service
 # ================================================== set ssl ==================================================
 create primary.crt,private.key and bundle.crt file in your server or ssl provider.
 put all 3 files in one folder and path.
