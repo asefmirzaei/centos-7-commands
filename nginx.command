@@ -25,6 +25,9 @@ sudo systemctl status nginx
 sudo systemctl stop nginx.service
 sudo systemctl disable nginx.service
 sudo userdel -r nginx
+sudo yum remove -y nginx nginx-common
+sudo yum remove -y nginx*
+sudo yum autoremove -y autoclean
 sudo rm -rf /etc/nginx
 sudo rm -rf /etc/init.d/nginx
 sudo rm -rf /var/log/nginx
