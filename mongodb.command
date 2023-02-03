@@ -18,6 +18,7 @@ sudo systemctl status mongod
 sudo systemctl stop mongod
 sudo yum erase -y $(rpm -qa | grep mongodb-org)
 sudo yum erase -y mongodb-org*
+sudo rm /tmp/mongodb-27017.sock
 sudo rm /etc/systemd/system/mongodb.service
 sudo rm -r /var/log/mongodb
 sudo rm -r /var/lib/mongo
