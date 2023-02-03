@@ -1,3 +1,4 @@
+# ================================================== install ==================================================
 sudo yum update -y
 
 # you can select version here
@@ -13,7 +14,14 @@ sudo yum install -y mongodb-org
 sudo systemctl start mongod
 sudo systemctl enable mongod
 sudo systemctl status mongod
-
+# ================================================== uninstall ================================================
+sudo systemctl stop mongod
+sudo yum erase -y $(rpm -qa | grep mongodb-org)
+sudo yum erase -y mongodb-org*
+sudo rm /etc/systemd/system/mongodb.service
+sudo rm -r /var/log/mongodb
+sudo rm -r /var/lib/mongo
+# ================================================== commands =================================================
 sudo systemctl stop mongod
 sudo systemctl start mongod
 sudo systemctl restart mongod
