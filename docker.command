@@ -34,6 +34,7 @@ sudo systemctl restart network
 
 # images commands :
 sudo docker image pull IMAGE_NAME # download an images in the repository
+sudo docker image pull IMAGE_NAME:IMAGE_TAG # download an images in the repository with selected tag or version
 sudo docker image pull IMAGE_NAME -a # download all tagged images in the repository
 sudo docker image pull IMAGE_NAME --all-tags # download all tagged images in the repository
 sudo docker image pull IMAGE_NAME --disable-content-trust # download an image and skip image verification
