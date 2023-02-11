@@ -84,4 +84,9 @@ sudo docker image inspect IMAGE_NAME -f # Display detailed information on one or
 sudo docker image inspect IMAGE_NAME --format # Display detailed information on one or more images and set output format.see format in https://docs.docker.com/config/formatting
 
 sudo docker image rm IMAGE_NAMNE # delete a image
+sudo docker image rm -f IMAGE_NAMNE # force delete a image
 sudo docker image rm --force IMAGE_NAMNE # force delete a image
+sudo docker rmi IMAGE_NAMNE # delete a image
+sudo docker rmi -f IMAGE_NAMNE # force delete a image
+sudo docker rmi --force IMAGE_NAMNE # force delete a image
+sudo docker rmi --no-prune IMAGE_NAMNE # delete a image do not delete untagged parents
