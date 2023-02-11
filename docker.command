@@ -100,6 +100,8 @@ sudo docker run -p YOUR_PORT IMAGE_NAME # run an image as a container on .
 sudo docker run --publish YOUR_PORT IMAGE_NAME # run an image as a container on .
 sudo docker run -p YOUR_PORT:YOUR_CONTAINER_PORT IMAGE_NAME # run an image as a container and publish container on selected port in your host.
 sudo docker run --publish YOUR_PORT:YOUR_CONTAINER_PORT IMAGE_NAME # run an image as a container and publish container on selected port in your host.
+sudo docker run -v YOU_HOST_DIR:YOUR_CONTAINER_DIR # run an image as a container and share a dir from your host with container.
+sudo docker run -v YOU_HOST_DIR:YOUR_CONTAINER_DIR:ro # run an image as a container and share a dir from your host with container and set dir read only.
 
 sudo docker ps # show all runing containers.
 sudo docker ps -a # show all containers.
@@ -150,3 +152,15 @@ sudo docker stop -t TIME_TO_SECOND CONTAINER_ID # stop a container with id.secon
 sudo docker stop --time TIME_TO_SECOND CONTAINER_ID # stop a container with id.seconds to wait before killing the container.
 sudo docker stop -s=SIGTERM CONTAINER_ID # stop a container with id. signal to send to the container
 sudo docker stop --signal=SIGTERM CONTAINER_ID #  stop a container with id. signal to send to the container
+
+sudo docker start CONTAINER_NAME # start a container with name.
+sudo docker start CONTAINER_NAME CONTAINER_NAME CONTAINER_NAME # start containers with names.
+sudo docker start CONTAINER_ID CONTAINER_ID CONTAINER_ID # start containers with container ids.
+sudo docker start $(sudo docker ps -q) # start all containers with ids.
+sudo docker start -a CONTAINER_NAME_OR_ID # start a containers with name or id and attach STDOUT/STDERR and forward signals.
+sudo docker start --attach CONTAINER_NAME_OR_ID # start a containers with name or id and attach STDOUT/STDERR and forward signals.
+sudo docker start --checkpoint CONTAINER_NAME_OR_ID # start a containers with name or id and restore from this checkpoint.
+sudo docker start --checkpoint-dir CONTAINER_NAME_OR_ID # start a containers with name or id and use a custom checkpoint storage directory.
+sudo docker start --detach-keys CONTAINER_NAME_OR_ID # start a containers with name or id and override the key sequence for detaching a container.
+sudo docker start -i CONTAINER_NAME_OR_ID # start a containers with name or id and attach container’s STDIN.
+sudo docker start --interactive CONTAINER_NAME _OR_ID # start a containers with name or id and attach container’s STDIN.
