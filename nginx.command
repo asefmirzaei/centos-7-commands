@@ -42,6 +42,7 @@ put all 3 files in one folder and path.
 add new server block in sitename.com.conf
 add the following commands to the file:
 
+user nginx
 server {
     listen 443 http2 ssl;
     listen [::]:443 http2 ssl;
