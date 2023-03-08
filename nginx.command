@@ -10,6 +10,8 @@ sudo nginx -v
 sudo firewall-cmd --permanent --add-service=http
 sudo firewall-cmd --permanent --add-service=https
 sudo firewall-cmd --reload
+# show nginx files
+rpm -ql nginx 
 sudo chown -R $USER:$USER /var/www/yoursitename
 check your host ip in browser
 config your nginx file in /etc/nginx
