@@ -48,7 +48,7 @@ server {
 
     root /var/www/yoursitename;
     index index.html index.htm index.nginx-debian.html;
-    server_name yoursitename.ir www.yoursitename.com;
+    server_name yoursitename.com www.yoursitename.com;
 
     charset utf-8;
     gzip on;
