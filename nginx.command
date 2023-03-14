@@ -83,10 +83,24 @@ server {
     
     location / {
       proxy_pass http://localhost:3000;
+      #--------------- cache settings ---------------
+      # proxy_ignore_headers Cache-Control;
+      add_header X-Cache-Status $upstream_cache_status;
+      slice 1m;
+      proxy_cache cache;
+      proxy_cache_key $proxy_host$request_uri$cookie_jessionid;
+      proxy_cache_valid any 1m;
+      proxy_cache_min_uses 3;
+      proxy_cache_bypass $http_upgrade $cookie_nocache $arg_nocache$arg_comment;
+      proxy_cache_methods GET HEAD POST;
+      proxy_cache_use_stale error timeout http_500 http_502 http_503 http_504;
+      proxy_cache_revalidate on;
+      proxy_cache_background_update on;
+      proxy_cache_lock on;
+	
       proxy_http_version 1.1;
       proxy_redirect off;
       proxy_set_header Upgrade $http_upgrade;
-      proxy_cache_bypass $http_upgrade;
       proxy_set_header X-Forwarded-Host $host;
       proxy_set_header X-Forwarded-Server $host;
       proxy_set_header X-Real-IP $remote_addr;
@@ -105,7 +119,6 @@ server {
       fastcgi_send_timeout 2000s;
       fastcgi_read_timeout 2000s;
       add_header Last-Modified $date_gmt;
-      add_header Cache-Control 'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0';
       if_modified_since off;
       expires off;
       etag off;
