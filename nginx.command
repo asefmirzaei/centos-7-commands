@@ -50,6 +50,7 @@ server {
     index index.html index.htm index.nginx-debian.html;
     server_name yoursitename.com www.yoursitename.com;
 
+    #--------------- compression settings ---------------
     gzip on;
     gzip_static on;
     gzip_vary on;
